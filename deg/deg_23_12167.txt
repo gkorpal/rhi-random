@@ -1,0 +1,7 @@
+p = 23
+max(min deg) = 3
+minimum degree frequency distribution
+1 => 3
+2 => 2
+3 => 1
+

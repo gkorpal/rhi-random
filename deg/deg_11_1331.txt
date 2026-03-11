@@ -1,0 +1,6 @@
+p = 11
+max(min deg) = 2
+minimum degree frequency distribution
+1 => 2
+2 => 1
+
