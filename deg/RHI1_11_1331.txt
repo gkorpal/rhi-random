@@ -26,4 +26,4 @@ total RHI's computed: 546
 
 polarization leading to same type: Dict{Integer, Integer}(2 => 202, 3 => 79, 1 => 265)
 
-Total run time: 0.0 hrs 0.0 min 2.0 sec
+Total run time: 0.0 hrs 0.0 min 4.0 sec

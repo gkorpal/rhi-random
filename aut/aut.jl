@@ -1,10 +1,86 @@
 using Oscar
 
+# Legendre symbol (a/p) for odd prime p (Kronecker = Legendre for prime p)
+legendre(a::Integer, p::Integer)::Int = Int(kronecker_symbol(a, p))
+ls_minus(d::Integer, p::Integer)::Int = legendre(-d, p)   # (-d/p)
+
+const AUT_ROWS = [
+    (0, "C2",        :C1),
+    (1, "C2 × C2",   :C2),
+    (2, "D6",        :S3),
+    (3, "D4",        :V4),
+    (4, "C3 × D4",   :D12),
+    (5, "GL2(F3)",   :S4),
+    (6, "C10",       :C5),
+]
+
+function auto_count_IKO(p::Integer, gamma::Symbol)::Int
+    p ≥ 7 || error("Use p ≥ 7 (IKO Theorem 3.3 (I)).")
+
+    q   = QQ(p)
+    lm1 = ls_minus(1, p)
+    lm2 = ls_minus(2, p)
+    lm3 = ls_minus(3, p)
+
+    N = QQ(0)
+
+    if gamma == :C1
+        N = (q - 1) * (q^2 - 35q + 346) / 2880
+        N -= (QQ(1) - lm1) / 32
+        N -= (QQ(1) - lm2) / 8
+        N -= (QQ(1) - lm3) / 9
+        if mod(p, 5) == 4
+            N -= QQ(1) / 5
+        end
+
+    elseif gamma == :C2
+        N = (q - 1) * (q - 17) / 48
+        N += (QQ(1) - lm1) / 8
+        N += (QQ(1) - lm2) / 2
+        N += (QQ(1) - lm3) / 2
+
+    elseif gamma == :S3
+        N = (q - 1) / 6
+        N -= (QQ(1) - lm2) / 2
+        N -= (QQ(1) - lm3) / 3
+
+    elseif gamma == :V4
+        N = (q - 1) / 8
+        N -= (QQ(1) - lm1) / 8
+        N -= (QQ(1) - lm2) / 4
+        N -= (QQ(1) - lm3) / 2
+
+    elseif gamma == :D12
+        N = (QQ(1) - lm3) / 2
+
+    elseif gamma == :S4
+        N = (QQ(1) - lm2) / 2
+
+    elseif gamma == :C5
+        N = mod(p, 5) == 4 ? QQ(1) : QQ(0)
+
+    else
+        error("Unknown gamma. Use :C1 :C2 :S3 :V4 :D12 :S4 :C5.")
+    end
+
+    denominator(N) == 1 || error("Non-integral result: $N")
+    return Int(numerator(N))
+end
+
+function aut_counts_IKO(p::Integer)::Dict{String,Int}
+    d = Dict{String,Int}()
+    for (_, autname, gamma) in AUT_ROWS
+        d[autname] = auto_count_IKO(p, gamma)
+    end
+    return d
+end
+
 
 """
     fileReader(filename)
 
-Reads polarization files of the format "polarizations_p_N.txt" where each line contains rhi_param values.
+Reads polarization files of the format "polz_<prime>_N.txt" where each line contains rhi_param values.
+
 """
 function fileReader(filename::String)
     prime = nothing
@@ -50,62 +126,13 @@ function fileReader(filename::String)
 end
 
 
+"""
+    RHI2(p, param)
+
+Given Bp = (-1, -p | Q) and polarization param = [u0, v0, w0, x0, y0, z0] computes the coefficient matrix of the 5-ary refined Humbert invariant which does not represent 1. 
 
 """
-    classNumbers(p)
-
-Returns the class numbers h, (h(h+1)/2) and H. 
-
-"""
-function classNumbers(p::Integer)
-    # Handle small p quickly H - (h(h+1))/2
-    if p == 2 || p == 3
-        return [1, 1, 0]
-    elseif p == 5
-        return [2, 1, 1]
-    end
-
-    # Compute H
-    # Precompute Jacobi values and remainders
-    a = (1 - jacobi_symbol(-1, p))
-    b = (1 - jacobi_symbol(-2, p))
-    c = (1 - jacobi_symbol(-3, p))
-    r5 = p % 5
-    d = (r5 == 4) ? (4//5) : 0
-    H =
-        ((p - 1) * (p + 12) * (p + 23))//2880 +
-        (a * (2p + 13))//96 +
-        (c * (p + 11))//36 +
-        (b//8) +
-        ((a * c)//12) +
-        d
-
-    # Compute h
-    # Use a small lookup table for offset in h
-    # Only 1, 5, 7, 11 matter; default 0 otherwise
-    r12 = p % 12
-    offset = if r12 == 1
-        0
-    elseif r12 == 5 || r12 == 7
-        1
-    elseif r12 == 11
-        2
-    else
-        0
-    end
-    h = ((p - r12)//12 + offset)
-
-    # Return result
-    return Int(h), Int((h * (h + 1)) ÷ 2), Int(H)
-end
-
-"""
-    RHI1(p, param)
-
-Given Bp = (-1, -p | Q) and polarization param = [u0, v0, w0, x0, y0, z0] computes the coefficient matrix of the 5-ary refined Humbert invariant which represent 1. 
-
-"""
-function RHI1(p::Integer, param::AbstractVector{<:Integer})
+function RHI2(p::Integer, param::AbstractVector{<:Integer})
     u0, v0, w0, x0, y0, z0 = param
 
     A = zero_matrix(QQ, 6, 6)
@@ -154,8 +181,6 @@ function RHI1(p::Integer, param::AbstractVector{<:Integer})
         return 0
     end
 
-
-    #println(A)
     Azz = map_entries(x -> ZZ(x//2), A)
     AA = lll_gram(Azz)
 
@@ -168,13 +193,11 @@ function RHI1(p::Integer, param::AbstractVector{<:Integer})
     # Work with top-left 5×5 submatrix
     B = @view AA[1:5, 1:5]
     
-    #if det(B) == (2^9) * p^2
-        L = integer_lattice(; gram = B)
-        if is_positive_definite(L) && minimum(L) == 1
-            C = B .* 2
-            return C
-        end
-    #end
+    L = integer_lattice(; gram = B)
+    if is_positive_definite(L) && minimum(L) > 1
+        C = B .* 2
+        return C
+    end
     return 0
 end
 
@@ -201,55 +224,35 @@ end
 
 
 """
-    degForm(M)
-
-Given the coefficient matrix M of RHI, it computes the coefficient matrix of the corresponding 4-ary quadratic form called degree form. 
-
-Note that, RHI = X^2 + 4*deg.
-"""
-function degForm(M::ZZMatrix)
-    # Check directly without allocating an intermediate matrix.
-    if M[1, 1] == 2 && M[1, 2] == 0 && M[1, 3] == 0 && M[1, 4] == 0 && M[1, 5] == 0
-        N = @view M[2:5, 2:5]  # Use a view to avoid copying the submatrix.
-        return N .÷ 4
-    end
-    return nothing
-end
-
-
-"""
-    allRHI1(p, N)
+    allRHI2(p,N)
 
 Given a prime p congruent to 11 mod 12
 
 """
-function allRHI1(p::Integer, N::Integer)
+function allRHI2(p::Integer, N::Integer)
     start_time = time()
     println("working with prime ", p)
 
     # Open file once for writing.
-    filename = "./RHI1_$(p)_$(N).txt"
+    filename = "./RHI2_$(p)_$(N).txt"
 
     file = open(filename, "w")
     try
         println(file, "p = ", p, "\n")
-
-        h, h2, H = classNumbers(p)
-        println(file, "h(h+1)/2 = ", h2)
-        println(file, "H = ", H, "\n")
 
         idx = 0   # Counting unique forms.
         total = 0 # Total RHIs computed.
 
         unique_forms = Vector{ZZMatrix}()
         pol_count = Dict{Integer,Integer}()
+        rep_count = Dict{Integer,Integer}()
 
         prime, params = fileReader("../polz/polz_$(p)_$(N).txt")
         count = length(params)
 
         if prime == p
             for param in params
-                cmA = RHI1(p, param)  # ZZMatrix coefficient matrix.
+                cmA = RHI2(p, param)  # ZZMatrix coefficient matrix.
                 if cmA != 0
                     total += 1
                     is_unique = true
@@ -327,10 +330,10 @@ function allRHI1(p::Integer, N::Integer)
                         q = polyForm(cmA)
                         println(file, "q(ExE,θ) = ", q)
 
-                        cmC = degForm(cmA)
-                        deg = polyForm(cmC)
-                        println(file, "deg(ExE,θ) = ", deg, "\n")
-
+                        L = integer_lattice(gram = cmA .÷ 2)
+                        ways = 2*length(short_vectors(L, 4, 4))
+                        println(file, "ways to represent 4 = ", ways, "\n")
+                        rep_count[ways] = get(rep_count, ways, 0) + 1
                     end
                 end
             end
@@ -339,6 +342,13 @@ function allRHI1(p::Integer, N::Integer)
         println(file, "total polarizations checked: ", count)
         println(file, "total RHI's computed: ", total, "\n")
         println(file, "polarization leading to same type: ", pol_count, "\n")
+        println(file, "representation of 4 distribution: ", rep_count, "\n")
+
+        println(file, "p = $p (IKO Thm 3.3 (I), grouped by Aut(C))")
+        for (caseno, autname, gamma) in AUT_ROWS
+            println(file, "($caseno) Aut(C) ≅ $autname : ", auto_count_IKO(p, gamma))
+        end
+        println(file, "\n")
 
         end_time = time()
         elapsed_time = end_time - start_time
@@ -354,148 +364,8 @@ function allRHI1(p::Integer, N::Integer)
 end
 
 
-"""
-    fileParser(filename)
-
-Reads in txt file, identifies prime p, and identifies all the degree forms and stores their coefficient matrices.
-
-"""
-function fileParser(filename::String)
-    # Define the polynomial ring in 5 variables over ZZ.
-    global R, (x1, x2, x3, x4, x5) = polynomial_ring(ZZ, 5)
-    PolyElem = typeof(x1^2)
-
-    prime = nothing
-    types_data = Dict{Integer,NTuple{2,PolyElem}}()
-
-    current_type = 0
-    current_q = nothing
-    current_deg = nothing
-
-    # regex patterns.
-    prime_re = r"^\s*p\s*=\s*(\d+)"
-    type_re = r"^\s*Type\s+(\d+)"
-    q_re = r"^\s*q\(ExE,θ\)\s*=\s*(.+)"
-    deg_re = r"^\s*deg\(ExE,θ\)\s*=\s*(.+)"
-
-    for line in eachline(filename)
-        # Check for the prime line.
-        m = match(prime_re, line)
-        if m !== nothing
-            prime = parse(BigInt, m.captures[1])
-            continue
-        end
-
-        m = match(type_re, line)
-        if m !== nothing
-            if current_type != 0
-                types_data[current_type] = (current_q, current_deg)
-            end
-            current_type = parse(BigInt, m.captures[1])
-            current_q = nothing
-            current_deg = nothing
-            continue
-        end
-
-        if current_type != 0
-            m = match(q_re, line)
-            if m !== nothing
-                q_str = strip(m.captures[1])
-                current_q = eval(Meta.parse(q_str))
-                continue
-            end
-
-            m = match(deg_re, line)
-            if m !== nothing
-                deg_str = strip(m.captures[1])
-                current_deg = eval(Meta.parse(deg_str))
-                continue
-            end
-        end
-    end
-
-    if current_type != 0
-        types_data[current_type] = (current_q, current_deg)
-    end
-
-    return prime, types_data
-end
-
-
-"""
-    minDeg(p,N)
-
-Retrieve all the degree forms from the file "RHI1_p_N.txt" and compute minimum vector for the lattice corresponding to the gram matrix. Finally, returns the frequency distribution of all minimum vectors.
-
-"""
-function minDeg(p::Integer, N::Integer)
-
-    monos = [
-        [2, 0, 0, 0, 0],
-        [1, 1, 0, 0, 0],
-        [1, 0, 1, 0, 0],
-        [1, 0, 0, 1, 0],
-        [1, 0, 0, 0, 1],
-        [0, 2, 0, 0, 0],
-        [0, 1, 1, 0, 0],
-        [0, 1, 0, 1, 0],
-        [0, 1, 0, 0, 1],
-        [0, 0, 2, 0, 0],
-        [0, 0, 1, 1, 0],
-        [0, 0, 1, 0, 1],
-        [0, 0, 0, 2, 0],
-        [0, 0, 0, 1, 1],
-        [0, 0, 0, 0, 2],
-    ]
-
-    filename = "RHI1_$(p)_$(N).txt"
-    prime, forms = fileParser(filename)
-    @assert prime == p "File mismatch"
-
-    NDict = Dict{Integer,Integer}()
-
-    for tp in keys(forms)
-        _, q = forms[tp]
-        coeffs = [coeff(q, mono) for mono in monos] #15 elements
-
-        A = ZZ[
-            2*coeffs[1] coeffs[2] coeffs[3] coeffs[4];
-            coeffs[2] 2*coeffs[6] coeffs[7] coeffs[8];
-            coeffs[3] coeffs[7] 2*coeffs[10] coeffs[11];
-            coeffs[4] coeffs[8] coeffs[11] 2*coeffs[13]
-        ]
-
-        L = integer_lattice(gram = A .÷ 2)
-        N = Int(minimum(L))
-        NDict[N] = get(NDict, N, 0) + 1
-    end
-    return NDict
-end
-
-
-function getDeg(p::Integer, N::Integer)
-    output_filename = "deg_$(p)_$(N).txt"
-    open(output_filename, "w") do io
-        println(io, "p = ", p)
-        try
-            NDict = minDeg(p,N)
-            println(io, "max(min deg) = ", maximum(keys(NDict)))
-            println(io, "minimum degree frequency distribution")
-            for (n, freq) in sort(collect(NDict), by = x -> x[2], rev = true)
-                println(io, n, " => ", freq)
-            end
-            println(io, "")   
-        catch e 
-            println(io, "skipping $p since file doesn't exist.\n")
-        end
-    end
-    return nothing
-end
-
-# uncomment to run the analysis
-# primes = [ 11, 23, 47, 59, 71, 83, 107, 131, 167, 179, 191, 227, 239, 251, 263, 311, 347, 359, 383, 419]
-
+# uncomment to run
+# primes = [107, 131, 167, 179, 191, 227, 239, 251, 263]
 # for p in primes
-#     allRHI1(p,p^3)
-#     getDeg(p,p^3)
+#     allRHI2(p, p^3)
 # end

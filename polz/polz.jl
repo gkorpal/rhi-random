@@ -1,3 +1,27 @@
+# This is Julia adaptation of SageMath code for KLPT2 paper.
+# https://github.com/KLPT2/KLPT2
+# MIT License
+
+# Copyright (c) 2024 KLPT2
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 using Oscar
 using Random
 using Printf
@@ -931,8 +955,50 @@ function pretty_pol_matrix(H::Hermitian2x2ZZ; maxchars::Int=60, show_conj::Bool=
 end
 
 
-####------ How to use----------
-# include("RandomPol2.jl")
-# p = 23
-# write_random_polarizations(p, p^3)
+# ============================================================
+# 9) Batch subprocess execution over primes
+# ============================================================
+
+"""
+    run_batch_random_polarizations(primes::Vector)
+
+Run write_random_polarizations(p, p^3) for each prime in a separate subprocess.
+Continues to the next prime even if the previous one is killed (e.g., due to OOM).
+"""
+function run_batch_random_polarizations(primes::Vector)
+    for p in primes
+        println("\n" * "="^60)
+        println("Processing prime p = $p")
+        println("="^60)
+        
+        script = """
+        include("RandomPol.jl")
+        try
+            write_random_polarizations($p, $p^3)
+            println("Completed write_random_polarizations($p, $(p^3))")
+        catch e
+            println("Error processing prime $p: \$e")
+            rethrow()
+        end
+        """
+        
+        try
+            proc = run(pipeline(`julia -e '$script'`), wait=true)
+            println("Subprocess completed successfully for p = $p")
+        catch e
+            if isa(e, ProcessFailedException)
+                println("WARNING: Subprocess for p = $p failed or was killed (possibly OOM). Continuing to next prime...")
+            else
+                println("WARNING: Error running subprocess for p = $p: $e. Continuing to next prime...")
+            end
+        end
+    end
+    println("\n" * "="^60)
+    println("Batch processing complete.")
+    println("="^60)
+end
+
+# Uncomment to run batch processing:
+# primes = [11, 23, 47, 59, 71, 83, 107, 131, 167, 179, 191, 227, 239, 251, 263, 311, 347, 359, 383, 419]
+# run_batch_random_polarizations(primes)
 
