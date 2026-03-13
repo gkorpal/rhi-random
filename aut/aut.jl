@@ -328,7 +328,7 @@ function allRHI2(p::Integer, N::Integer)
                         push!(unique_forms, cmA)
 
                         q = polyForm(cmA)
-                        println(file, "q(ExE,θ) = ", q)
+                        println(file, "q(A,θ) = ", q)
 
                         L = integer_lattice(gram = cmA .÷ 2)
                         ways = 2*length(short_vectors(L, 4, 4))
