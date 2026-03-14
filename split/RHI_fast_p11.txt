@@ -1,0 +1,22 @@
+============================================================
+p = 11   log(p) = 2.3978952727983707   Kmax = 3
+forms = 2
+============================================================
+
+Form 1
+min_k = 1
+represented_ks = [1, 2, 3]
+count = 3
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=2  witness=[0, 0, -2, -1, 1]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-1, 0, -4, -2, 1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 2
+min_k = 1
+represented_ks = [1, 2, 3]
+count = 3
+witnesses:
+  k=1  witness=[0, 0, 0, -1, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, 0, 0, -1, -1]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-1, 0, 0, -3, -2]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6

@@ -1,0 +1,420 @@
+============================================================
+p = 47   log(p) = 3.8501476017100584   Kmax = 4
+forms = 43
+============================================================
+
+Form 1
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, 0, 1, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=3  witness=[-2, 0, 0, -1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-3, -1, 0, -2, -2]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=15
+
+Form 2
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[0, -1, 0, 1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=16
+  k=3  witness=[1, -2, -2, 1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=9
+  k=4  witness=[-1, 0, -1, -1, -3]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=21
+
+Form 3
+min_k = 2
+represented_ks = [2, 3, 4]
+count = 3
+witnesses:
+  k=2  witness=[0, -1, 0, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-1, -1, -1, -1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-2, -1, 0, -3, -2]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 4
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, 1, 0, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=21
+  k=3  witness=[1, 0, -1, -2, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=53
+  k=4  witness=[0, -1, -2, 1, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 5
+min_k = 2
+represented_ks = [2, 3, 4]
+count = 3
+witnesses:
+  k=2  witness=[-1, 1, -1, 0, -1]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=8
+  k=3  witness=[-3, 2, -2, 0, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=8
+  k=4  witness=[-7, 3, -3, 2, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=18
+
+Form 6
+min_k = 2
+represented_ks = [2, 3, 4]
+count = 3
+witnesses:
+  k=2  witness=[-1, -1, 0, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=3  witness=[1, -2, 0, -2, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=10
+  k=4  witness=[1, -1, 1, -2, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 7
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, -1, -1, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=8
+  k=3  witness=[-2, -1, -2, -2, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=10
+  k=4  witness=[-1, -2, -1, -2, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 8
+min_k = 2
+represented_ks = [2, 3, 4]
+count = 3
+witnesses:
+  k=2  witness=[-1, 0, 0, 0, 1]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=21
+  k=3  witness=[-3, -3, 1, 0, 1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-7, -4, 2, 2, 1]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=12
+
+Form 9
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, -1, 1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=18
+  k=3  witness=[-1, 0, 0, 0, -2]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-3, 1, -1, 0, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=10
+
+Form 10
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[0, -1, 0, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[0, 0, 0, -2, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-1, -2, -2, 0, -3]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=44
+
+Form 11
+min_k = 2
+represented_ks = [2, 3, 4]
+count = 3
+witnesses:
+  k=2  witness=[0, 1, 0, -1, -1]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=3  witness=[-1, 1, 1, -2, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=11
+  k=4  witness=[-1, 0, -1, -5, -2]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 12
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[0, 0, -1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-1, 1, -2, 1, 0]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=16
+  k=4  witness=[0, 1, -4, 0, -1]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+
+Form 13
+min_k = 2
+represented_ks = [2, 3, 4]
+count = 3
+witnesses:
+  k=2  witness=[-2, -1, -1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=10
+  k=3  witness=[-2, -2, 1, -1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=13
+  k=4  witness=[-2, -3, 0, -1, -3]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 14
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[0, 0, 0, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=8
+  k=3  witness=[-1, 0, -2, -2, 0]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-2, -1, -4, -4, 0]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 15
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, 0, -1, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=3  witness=[0, 0, -1, -1, -2]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-1, 0, -1, -1, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=10
+
+Form 16
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[0, -1, 0, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=22
+  k=3  witness=[0, -1, -2, -2, 1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=11
+  k=4  witness=[0, -1, -6, -2, 1]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=10
+
+Form 17
+min_k = 2
+represented_ks = [2, 3, 4]
+count = 3
+witnesses:
+  k=2  witness=[1, 0, 0, 0, -1]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=3  witness=[0, 0, 0, -1, -2]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[1, 0, -1, -1, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 18
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, 0, -1, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-1, 2, -2, -1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=9
+  k=4  witness=[-2, 2, -2, 0, -3]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=10
+
+Form 19
+min_k = 1
+represented_ks = [1, 3, 4]
+count = 3
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-2, -2, -2, 1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=4  witness=[-4, -1, -1, -1, -3]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=117
+
+Form 20
+min_k = 2
+represented_ks = [2, 3, 4]
+count = 3
+witnesses:
+  k=2  witness=[0, 0, 0, -1, -1]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[0, 1, 0, -2, -2]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=10
+  k=4  witness=[0, 1, -2, -5, -3]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 21
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, 0, -1, 0, -1]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-2, 1, -1, 0, -2]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=26
+  k=4  witness=[-3, 1, -3, -2, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=15
+
+Form 22
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[0, 0, 0, 0, -1]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-1, 1, -1, 0, -2]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=8
+  k=4  witness=[0, 3, -3, 0, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=13
+
+Form 23
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, 0, 0, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=3  witness=[-1, -2, 1, -1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=33
+  k=4  witness=[-1, -2, 1, 2, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 24
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[0, 0, 1, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=18
+  k=3  witness=[0, 0, 0, -1, -2]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-2, -2, -2, -1, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=18
+
+Form 25
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, 1, -1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=14
+  k=3  witness=[1, 0, 0, 0, -2]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[1, 0, -1, 1, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 26
+min_k = 2
+represented_ks = [2, 3, 4]
+count = 3
+witnesses:
+  k=2  witness=[-1, 0, 0, 0, -1]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-3, 0, 0, 0, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-6, -1, 0, 0, -2]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 27
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, -1, 1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=12
+  k=3  witness=[-1, 1, -1, -1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=12
+  k=4  witness=[0, -2, -2, -1, -3]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 28
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[0, 0, -1, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[0, -1, -2, -1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=18
+  k=4  witness=[2, 2, -5, -3, 0]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 29
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-2, 0, -1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=16
+  k=3  witness=[-1, 0, 0, 0, -2]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=4  witness=[-4, 1, -1, 0, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 30
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-2, 1, -1, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-2, 1, 0, -2, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-3, 2, 1, -4, -2]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=13
+
+Form 31
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[0, -1, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, -1, 0, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-1, -3, 0, -2, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=16
+  k=4  witness=[-3, -4, 0, -3, -3]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=19
+
+Form 32
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, -1, -1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=3  witness=[2, 1, -1, -1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=14
+  k=4  witness=[0, 0, 2, -4, 1]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+
+Form 33
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[0, 0, 0, 0, -1]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-2, -2, 0, -1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=14
+  k=4  witness=[-1, 0, 0, 1, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=10
+
+Form 34
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, 0, -1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=3  witness=[0, 0, 1, -2, 0]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-1, 0, 1, -4, 0]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 35
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, -1, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[0, 0, 0, -1, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-4, -2, 0, -1, 0]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=159
+  k=4  witness=[-1, -1, -1, -4, 0]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 36
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-1, 0, -1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=9
+  k=3  witness=[1, 0, 0, 0, -2]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[1, 0, -1, 0, -4]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 37
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-2, 0, 1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=26
+  k=3  witness=[-1, -1, 1, -1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=9
+  k=4  witness=[-3, -1, 0, -2, -2]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 38
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-2, 1, -1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=7
+  k=3  witness=[-3, 1, -2, -1, 0]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=39
+  k=4  witness=[-5, 3, -3, -3, 0]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=150
+
+Form 39
+min_k = 1
+represented_ks = [1, 3, 4]
+count = 3
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[1, -1, 0, -1, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=50
+  k=4  witness=[1, -1, 2, -4, 2]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 40
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[0, -1, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[0, -1, -1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[0, -1, -1, 0, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[0, 1, -3, 0, -2]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 41
+min_k = 1
+represented_ks = [1, 3, 4]
+count = 3
+witnesses:
+  k=1  witness=[-1, -1, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=3  witness=[-2, -2, -2, 0, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=78
+  k=4  witness=[-1, -1, -3, 0, -3]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=93
+
+Form 42
+min_k = 1
+represented_ks = [1, 2, 3, 4]
+count = 4
+witnesses:
+  k=1  witness=[0, 0, -1, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=2  witness=[-2, 1, -1, 0, 0]  value=16  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=12
+  k=3  witness=[-2, 0, 0, 0, -1]  value=64  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=22
+  k=4  witness=[0, 1, 0, -2, -2]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+
+Form 43
+min_k = 1
+represented_ks = [1, 4]
+count = 2
+witnesses:
+  k=1  witness=[-1, 0, 0, 0, 0]  value=4  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=6
+  k=4  witness=[-5, 2, 2, 0, -2]  value=256  gcd=1  method=LLL + Fincke-Pohst / Kannan-style ellipsoid search [BigFloat-safe]  nodes=284
