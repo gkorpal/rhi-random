@@ -26,7 +26,7 @@ $$ q_{E\times E, \theta}(D) = X^2 + 4\cdot \deg$$
 
 where $\deg$ is a 4-ary quadratic form.
 
-The [`deg`](./deg/) directory contains the code and data about degree maps and $\max(\min(\deg))$ values for the primes of interest.
+The [`deg`](./deg/) directory contains the code and data about degree maps and $\max(\min(\deg))$ values for the primes of interest for random polarizations.
 
 ### Automorphism groups
 
@@ -38,6 +38,15 @@ where $i(\mathrm{Aut}(C))$ is the number of involutions of the automorphism grou
 
 The [`aut`](./aut/) directory contains the code and data about the automorphism group distribution for the primes of interest.
 
+### Splittings
+
+The [`split`](./split/) directory contains the data about the splittings.
+
+### Superspecial Polarizations
+
+We adapt the code accompanying [Sarah Chisholm's dissertation](http://hdl.handle.net/11023/1920) and the research paper by [Greenberg and Voight](http://arxiv.org/abs/1209.2460v1). 
+
+The [`optimal`](./optimal/) directory contains code and data about polarizations and corresponding refined Humbert invariants.
 
 ## System Requirements
 
