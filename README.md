@@ -15,7 +15,7 @@ The [`genus`](./genus/) directory contains the code and data about the genus of 
 ### Enumeration of principal polarizations on superspecial surfaces
 
 This algorithm classifies principal polarizations by enumerating unimodular positive definite binary Hermitian forms over the fixed maximal order $$O \subset \mathrm{B}_p$$. We adapt lattice techiques to switch from binary Hermitian module to integral lattice of rank $$8$$.
-Integral lattices come equipped with 4 trace forms in 8 variables (auxiliary forms) that are respecting to both the quadratic form and the O-structure. We reduce the auxiliary forms by LLL, and then applying exact simultaneous Plesken–Souvignier isometry. The enumeration bound is increased dynamically, and the computation terminates once the number of inequivalent packets reaches the theoretical class number H(p). 
+Integral lattices come equipped with 4 trace forms in 8 variables (auxiliary forms) that are respecting to both the quadratic form and the O-structure. We reduce the auxiliary forms by LLL, and then applying exact simultaneous Plesken–Souvignier isometry. The enumeration bound is increased dynamically, and the computation terminates once the number of non-isomorphic principal polarizations reaches the class number H(p). 
 
 The main ideas are taken from [Lattice methods for algebraic modular forms on classical groups](https://arxiv.org/abs/1209.2460)
 Matthew Greenberg, John Voight, and [Algorithmic enumeration of quaternionic lattices]() by Sarah Chisholm. 
