@@ -44,7 +44,7 @@ The [`aut`](./aut/) directory contains the code and data about the automorphism 
 
 The [`split`](./split/) directory contains the data about the splittings.
 
-### Superspecial Polarizations
+### Superspecial polarizations
 
 This algorithm classifies principal polarizations by enumerating unimodular positive definite binary Hermitian forms over the fixed maximal order $$O \subset \mathrm{B}_p$$. We adapt lattice techiques to switch from binary Hermitian module to integral lattice of rank $$8$$.
 Integral lattices come equipped with 4 trace forms in 8 variables (auxiliary forms) that are respecting to both the quadratic form and the O-structure. We reduce the auxiliary forms by LLL, and then applying exact simultaneous Plesken–Souvignier isometry. The enumeration bound is increased dynamically, and the computation terminates once the number of non-isomorphic principal polarizations reaches the class number H(p). 
