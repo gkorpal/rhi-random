@@ -12,15 +12,7 @@ $$q_{(E \times E, \theta)}(D)=t_0^2+4\left(t_1^2 + t_1t_3 + t_2^2 + t_2t_4 + \fr
 
 The [`genus`](./genus/) directory contains the code and data about the genus of this 5-ary form for primes of interest.
 
-### Enumeration of principal polarizations on superspecial surfaces
 
-This algorithm classifies principal polarizations by enumerating unimodular positive definite binary Hermitian forms over the fixed maximal order $$O \subset \mathrm{B}_p$$. We adapt lattice techiques to switch from binary Hermitian module to integral lattice of rank $$8$$.
-Integral lattices come equipped with 4 trace forms in 8 variables (auxiliary forms) that are respecting to both the quadratic form and the O-structure. We reduce the auxiliary forms by LLL, and then applying exact simultaneous Plesken–Souvignier isometry. The enumeration bound is increased dynamically, and the computation terminates once the number of non-isomorphic principal polarizations reaches the class number H(p). 
-
-The main ideas are taken from [Lattice methods for algebraic modular forms on classical groups](https://arxiv.org/abs/1209.2460)
-Matthew Greenberg, John Voight, and [Algorithmic enumeration of quaternionic lattices]() by Sarah Chisholm. 
-
-[`optimal`](./optimal/) directory contains the code and data for small primes. 
 
 ### Random polarizations
 
@@ -54,7 +46,10 @@ The [`split`](./split/) directory contains the data about the splittings.
 
 ### Superspecial Polarizations
 
-We adapt the code accompanying [Sarah Chisholm's dissertation](http://hdl.handle.net/11023/1920) and the research paper by [Greenberg and Voight](http://arxiv.org/abs/1209.2460v1). 
+This algorithm classifies principal polarizations by enumerating unimodular positive definite binary Hermitian forms over the fixed maximal order $$O \subset \mathrm{B}_p$$. We adapt lattice techiques to switch from binary Hermitian module to integral lattice of rank $$8$$.
+Integral lattices come equipped with 4 trace forms in 8 variables (auxiliary forms) that are respecting to both the quadratic form and the O-structure. We reduce the auxiliary forms by LLL, and then applying exact simultaneous Plesken–Souvignier isometry. The enumeration bound is increased dynamically, and the computation terminates once the number of non-isomorphic principal polarizations reaches the class number H(p). 
+
+We adap the ideas given in the research paper by [Greenberg and Voight](http://arxiv.org/abs/1209.2460v1), and [Sarah Chisholm's dissertation](http://hdl.handle.net/11023/1920).
 
 The [`optimal`](./optimal/) directory contains code and data about polarizations and corresponding refined Humbert invariants.
 
