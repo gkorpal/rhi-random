@@ -1,0 +1,9 @@
+p = 71
+max(min deg) = 5
+minimum degree frequency distribution
+4 => 7
+2 => 7
+1 => 7
+3 => 5
+5 => 2
+
