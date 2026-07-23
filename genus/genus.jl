@@ -44,7 +44,8 @@ function Genus5(p::Int)
 end
 
 # Uncomment to run:
-# primes = [11, 23, 47, 59, 71, 83, 107, 131, 167, 179, 191, 227, 239, 251, 263, 311, 347, 359, 383, 419]
-# for p in primes
-#     Genus5(p)
+# for p in 11:12:660
+#     if is_probable_prime(p)
+#         Genus5(p)
+#     end
 # end
